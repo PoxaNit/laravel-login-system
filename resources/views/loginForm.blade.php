@@ -12,13 +12,27 @@
 
         <form method="POST" action="/login">
 
-            <label for="name">Name:</label>
-            <input id="name" required name="name">
+            <section>
 
-            <label for="password">Password:</label>
-            <input type="password" required id="password" name="password">
+                <label for="name">Name:</label>
+                <input id="name" required name="name">
 
-            <input type="submit">
+                <label for="password">Password:</label>
+                <input type="password" required id="password" name="password">
+
+                <input type="submit">
+
+            </section>
+
+            @if (!empty($formErrors))
+
+                <section>
+
+                    <p class="error_message_p">{{$formErrors[0]}}</p>
+
+                </section>
+
+            @endif
 
         </form>
 

@@ -24,9 +24,11 @@ class AuthController extends Controller
 
         $user = User::where("email", $email)->first();
 
+        $formErrors = ["Invalid email or password"];
+
         if (!$user):
 
-            return view("loginForm");
+            return view("loginForm", ["formErrors" => $formErrors]);
 
         endif;
 
@@ -38,7 +40,7 @@ class AuthController extends Controller
 
         endif;
 
-        return view("loginForm");
+        return view("loginForm", ["formErrors" => $formErrors]);
 
     }
 
