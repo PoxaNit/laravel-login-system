@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
 
-    public function createUser (Request $request) {
+    public function create (Request $request) {
 
         $validated = $request->validate([
           "name" => "required|string",
@@ -18,15 +19,11 @@ class UserController extends Controller
 
         $email = $validated->input("email");
 
-        $user = User::where("email", $email)->get();
+        $user = User::where("email", $email)->first();
 
-        if (!$user):
+        if ($user):
 
-            return response()->json([
-              "message" => "User already exists",
-              "data" => null,
-              "success" => false
-            ], 409);
+            return view("createUserForm");
 
         endif;
 
@@ -34,11 +31,15 @@ class UserController extends Controller
 
         $password = $validated->input("password");
 
+        $hash = Hash::make($password);
+
         User::create([
             "name" => $name,
             "email" => $email,
             "password" => $hash
         ]);
+
+        return view("loginForm");
 
     }
 
