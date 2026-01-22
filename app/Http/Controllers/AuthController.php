@@ -32,9 +32,9 @@ class AuthController extends Controller
 
         endif;
 
-        $storedHash = $user["password"];
+        $storedHash = $user->password;
 
-        if (Hash::check($storedHash, $hash)):
+        if (Hash::check($password, $storedHash)):
 
             return view("page");
 

@@ -14,8 +14,8 @@
             @csrf
             <section>
 
-                <label for="name">Name:</label>
-                <input id="name" required name="name">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required name="email">
 
                 <label for="password">Password:</label>
                 <input type="password" required id="password" name="password">
