@@ -11,7 +11,7 @@
     <body>
 
         <form method="POST" action="/login">
-
+            @csrf
             <section>
 
                 <label for="name">Name:</label>

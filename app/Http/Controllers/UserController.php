@@ -17,7 +17,7 @@ class UserController extends Controller
           "password" => "required|string"
         ]);
 
-        $email = $validated->input("email");
+        $email = $validated["email"];
 
         $user = User::where("email", $email)->first();
 
@@ -31,9 +31,9 @@ class UserController extends Controller
 
         endif;
 
-        $name = $validated->input("name");
+        $name = $validated["name"];
 
-        $password = $validated->input("password");
+        $password = $validated["password"];
 
         $hash = Hash::make($password);
 

@@ -10,8 +10,8 @@
 
     <body>
 
-        <form action="/users/create" method="POST">
-
+        <form action="/users/form" method="POST">
+            @csrf
             <section>
 
                 <label>

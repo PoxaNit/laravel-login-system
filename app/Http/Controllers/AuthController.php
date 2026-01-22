@@ -16,9 +16,9 @@ class AuthController extends Controller
           "password" => "required|string"
         ]);
 
-        $email = $validated->email;
+        $email = $validated["email"];
 
-        $password = $validated->password;
+        $password = $validated["password"];
 
         $hash = Hash::make($password);
 
@@ -32,7 +32,7 @@ class AuthController extends Controller
 
         endif;
 
-        $storedHash = $user->password;
+        $storedHash = $user["password"];
 
         if (Hash::check($storedHash, $hash)):
 
