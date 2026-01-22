@@ -20,8 +20,6 @@ class AuthController extends Controller
 
         $password = $validated["password"];
 
-        $hash = Hash::make($password);
-
         $user = User::where("email", $email)->first();
 
         $formErrors = ["Invalid email or password"];
