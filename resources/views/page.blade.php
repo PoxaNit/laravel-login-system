@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-  <head></head>
+  <head>Page</head>
   <body>
 
     <h1>Hello</h1>

@@ -12,22 +12,36 @@
 
         <form action="/users/create" method="POST">
 
-            <label>
-              Name:
-              <input name="name">
-            </label>
+            <section>
 
-            <label>
-              Email:
-              <input type="email" name="email">
-            </label>
+                <label>
+                  Name:
+                  <input name="name">
+                </label>
 
-            <label>
-              Password:
-              <input type="password" name="password">
-            </label>
+                <label>
+                  Email:
+                  <input type="email" name="email">
+                </label>
 
-            <input type="submit">
+                <label>
+                  Password:
+                  <input type="password" name="password">
+                </label>
+
+                <input type="submit">
+
+            </section>
+
+            @if (isset($formErrors) && !empty($formErrors))
+
+                <section>
+
+		    <p class="error_message_p">{{$formErrors[0]}}</p>
+
+                </section>
+
+            @endif
 
         </form>
 

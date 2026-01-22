@@ -24,7 +24,7 @@
 
             </section>
 
-            @if (!empty($formErrors))
+            @if (isset($formErrors) && !empty($formErrors))
 
                 <section>
 

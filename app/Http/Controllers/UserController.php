@@ -23,7 +23,11 @@ class UserController extends Controller
 
         if ($user):
 
-            return view("createUserForm");
+            return view("createUserForm", [
+              "formErrors" => [
+                "User already exists"
+              ]
+            ]);
 
         endif;
 
